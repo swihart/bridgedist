@@ -1,5 +1,5 @@
 Package: bridgedist
-Title: An implementation of the Bridge Distribution with logit-link as in Wang and Louis (2003)
+Title: An Implementation of the Bridge Distribution with Logit-Link as in Wang and Louis (2003)
 Version: 0.0.0.9000
 Authors@R: person("Bruce", "Swihart", email = "bruce.swihart@gmail.com", role = c("aut", "cre"))
 Description: An implementation of the bridge distribution with logit-link in R.
@@ -17,6 +17,7 @@ Suggests: knitr,
     reshape2,
     ggplot2,
     testthat
+Imports: stats
 VignetteBuilder: knitr
 URL:  http://github.com/swihart/bridgedist
 BugReports: http://github.com/swihart/bridgedist/issues

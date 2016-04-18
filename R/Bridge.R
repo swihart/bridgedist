@@ -86,5 +86,5 @@ qbridge <- function(p, location = 0, scale = 1/2, lower.tail = TRUE, log.p = FAL
 ##' @rdname Bridge
 ##' @export
 rbridge <- function(n, location = 0, scale = 1/2){
-  qbridge(runif(n), location, scale)
+  qbridge(stats::runif(n), location, scale)
 }
