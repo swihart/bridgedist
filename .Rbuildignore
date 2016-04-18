@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^Logistic\.Rd$
 ^Rmd/*$
+^\.travis\.yml$
+^readMe\.Rmd$
