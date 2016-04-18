@@ -43,5 +43,6 @@ library(bridgedist)
 dbridge(0)
 pbridge(0)
 qbridge(0.5)
-mean(rbridge(100))
+mean(rbridge(1e5)) ## approximately 0
+var(rbridge(1e5, 0, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
 ```

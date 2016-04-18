@@ -20,6 +20,8 @@ pbridge(0)
 #> [1] 0.5
 qbridge(0.5)
 #> [1] 0
-mean(rbridge(100))
-#> [1] 0.4326915
+mean(rbridge(1e5)) ## approximately 0
+#> [1] -0.008484367
+var(rbridge(1e5, 0, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+#> [1] 0.9968729
 ```
