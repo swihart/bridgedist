@@ -8,3 +8,6 @@
 ^readMe\.md$
 ^readMe_files/$
 ^readMe_files/*$
+^cran-comments\.md$
+^README\.Rmd$
+^README-.*\.png$
