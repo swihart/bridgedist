@@ -4,3 +4,7 @@
 ^Rmd/*$
 ^\.travis\.yml$
 ^readMe\.Rmd$
+^readMe\.html$
+^readMe\.md$
+^readMe_files/$
+^readMe_files/*$
