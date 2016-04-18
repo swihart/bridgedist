@@ -1,4 +1,4 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.Rmd. So, please edit this file -->
 [![Travis-CI Build Status](https://travis-ci.org/swihart/bridgedist.svg?branch=master)](https://travis-ci.org/swihart/bridgedist)
 
 Package: bridgedist
@@ -21,7 +21,7 @@ pbridge(0)
 qbridge(0.5)
 #> [1] 0
 mean(rbridge(1e5)) ## approximately 0
-#> [1] -0.008484367
-var(rbridge(1e5, 0, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
-#> [1] 0.9968729
+#> [1] -0.003490218
+var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+#> [1] 0.9983954
 ```

@@ -64,7 +64,7 @@
 ##' @keywords distribution
 ##' @examples
 ##'   ## Confirm unit variance for scale = 1/sqrt(1+3/pi^2)
-##'   var(rbridge(1e5, 0, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+##'   var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
 ##'
 ##' @name Bridge
 ##'
