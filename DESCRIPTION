@@ -1,0 +1,20 @@
+Package: bridgedist
+Title: An implementation of the Bridge Distribution with logit-link as in Wang and Louis (2003)
+Version: 0.0.0.9000
+Authors@R: person("Bruce", "Swihart", email = "bruce.swihart@gmail.com", role = c("aut", "cre"))
+Description: An implementation of the bridge distribution with logit-link in R.
+    In Wang and Louis (2003), such a bridge distribution was derived as the distribution of
+    the random intercept that facilitated having a conditional logistic regression that when
+    marginalized by integrating out the random intercept left a marginal logistic regression,
+    and the conditional and marginal regression coefficients are a scalar multiple of each other.
+Depends: 
+    R (>= 1.0.0)
+License: GPL-2
+LazyData: true
+RoxygenNote: 5.0.1.9000
+Suggests: knitr,
+    rmarkdown,
+    reshape2,
+    ggplot2,
+    testthat
+VignetteBuilder: knitr
