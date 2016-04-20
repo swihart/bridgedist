@@ -1,12 +1,12 @@
 ##' The Bridge Distribution
 ##'
 ##' Density, distribution function, quantile function and random generation for
-##' the bridge distribution with parameters \code{location} and \code{scale}. See Wang and Louis (2003).
+##' the bridge distribution with parameter\code{scale}. See Wang and Louis (2003).
 ##'
-##' If \code{location} or \code{scale} are omitted, they assume the default
-##' values of \code{0} and \code{1/2} respectively.
+##' If \code{scale} is omitted, the default
+##' value \code{1/2} is assumed.
 ##'
-##' The Bridge distribution with \code{location} \eqn{= \mu}{= m} and
+##' The Bridge distribution with
 ##' \code{scale} \eqn{= \sigma}{= s} has distribution function
 ##' \deqn{ }{F(q) = 1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))}
 ##' and density
@@ -17,16 +17,16 @@
 ##'
 ##' @aliases Bridge bridge dbridge pbridge qbridge rbridge bridgedist
 ## @usage
-## dbridge(x, location = 0, scale = 200, log = FALSE) \cr
-## pbridge(q, location = 0, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
-## qbridge(p, location = 0, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
-## rbridge(n, location = 0, scale = 1/2)
+## dbridge(x, scale = 1/2, log = FALSE) \cr
+## pbridge(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
+## qbridge(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
+## rbridge(n, scale = 1/2)
 ##'
 ##' @param x,q vector of quantiles.
 ##' @param p vector of probabilities.
 ##' @param n number of observations. If \code{length(n) > 1}, the length is
 ##' taken to be the number required.
-##' @param location,scale location and scale parameters. The scale must be between 0 and 1. A scale of 1/sqrt(1+3/pi^2) gives unit variance.
+##' @param scale scale parameter. The scale must be between 0 and 1. A scale of 1/sqrt(1+3/pi^2) gives unit variance.
 ##' @param log,log.p logical; if TRUE, probabilities p are given as log(p).
 ##' @param lower.tail logical; if TRUE (default), probabilities are \eqn{P[X
 ##' \le x]}, otherwise, \eqn{P[X > x]}.
@@ -70,21 +70,21 @@
 ##'
 ##' @rdname Bridge
 ##' @export
-dbridge <- function(x, location = 0, scale = 1/2, log = FALSE){
+dbridge <- function(x, scale = 1/2, log = FALSE){
   1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi))
 }
 ##' @rdname Bridge
 ##' @export
-pbridge <- function(q, location = 0, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
+pbridge <- function(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
   1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))
 }
 ##' @rdname Bridge
 ##' @export
-qbridge <- function(p, location = 0, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
+qbridge <- function(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
   1/scale * log( sin(scale*pi*p) / sin(scale*pi*(1-p)) )
 }
 ##' @rdname Bridge
 ##' @export
-rbridge <- function(n, location = 0, scale = 1/2){
-  qbridge(stats::runif(n), location, scale)
+rbridge <- function(n, scale = 1/2){
+  qbridge(stats::runif(n), scale)
 }

@@ -1,7 +1,7 @@
 library(bridgedist)
 
 test_that("Confirm unit variance +/- 0.1 for scale = 1/sqrt(1+3/pi^2)", {
-  expect_equal(object = var(rbridge(1e5, 0, scale = 1/sqrt(1+3/pi^2))),
+  expect_equal(object = var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2))),
                expected = 1,
                tolerance = 0.1,
                scale = 1)
