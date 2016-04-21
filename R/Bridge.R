@@ -71,17 +71,23 @@
 ##' @rdname Bridge
 ##' @export
 dbridge <- function(x, scale = 1/2, log = FALSE){
-  1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi))
+  d=1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi))
+  if(log) d = log(d)
+  d
 }
 ##' @rdname Bridge
 ##' @export
 pbridge <- function(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
-  1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))
+  p=1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))
+  if(log.p) p = log(p)
+  p
 }
 ##' @rdname Bridge
 ##' @export
 qbridge <- function(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
-  1/scale * log( sin(scale*pi*p) / sin(scale*pi*(1-p)) )
+  if(log.p) p = exp(p)
+  q=1/scale * log( sin(scale*pi*p) / sin(scale*pi*(1-p)) )
+  q
 }
 ##' @rdname Bridge
 ##' @export
