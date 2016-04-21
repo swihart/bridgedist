@@ -79,6 +79,7 @@ dbridge <- function(x, scale = 1/2, log = FALSE){
 ##' @export
 pbridge <- function(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
   p=1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))
+  if(!lower.tail) p = 1-p
   if(log.p) p = log(p)
   p
 }
@@ -86,6 +87,7 @@ pbridge <- function(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
 ##' @export
 qbridge <- function(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
   if(log.p) p = exp(p)
+  if(!lower.tail) p = 1-p
   q=1/scale * log( sin(scale*pi*p) / sin(scale*pi*(1-p)) )
   q
 }

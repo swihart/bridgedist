@@ -53,3 +53,61 @@ test_that("Confirm log.p = TRUE feature works in qbridge", {
                tolerance = 1e-6,
                scale = 1)
 })
+
+
+test_that("Confirm lower.tail = FALSE feature works in pbridge", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- rnorm(1, sd=2)
+  expect_equal(object =       pbridge(x, scale=phi, lower.tail=TRUE),
+               expected =   1-pbridge(x, scale=phi, lower.tail=FALSE),
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+test_that("Confirm lower.tail = FALSE feature works in qbridge", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- runif(1, 0.01, 0.99)
+  expect_equal(object =       qbridge(  x, scale=phi, lower.tail=TRUE),
+               expected =     qbridge(1-x, scale=phi, lower.tail=FALSE),
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+
+test_that("Confirm lower.tail = FALSE feature works in pbridge with log.p=T", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- rnorm(1, sd=2)
+  expect_equal(object =             pbridge(x, scale=phi, lower.tail=TRUE , log.p=TRUE),
+               expected = log(1-exp(pbridge(x, scale=phi, lower.tail=FALSE, log.p=TRUE))),
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+test_that("Confirm lower.tail = FALSE feature works in qbridge with log.p=T", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- runif(1, 0.01, 0.99)
+  expect_equal(object =       qbridge(log(  x), scale=phi, lower.tail=TRUE , log.p=TRUE),
+               expected =     qbridge(log(1-x), scale=phi, lower.tail=FALSE, log.p=TRUE),
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+
+
+test_that("Confirm log.p = TRUE feature works in pbridge with lower.tail=F", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- rnorm(1, sd=2)
+  expect_equal(object =       pbridge(x, scale=phi, lower.tail=FALSE, log.p=TRUE),
+               expected = log(pbridge(x, scale=phi, lower.tail=FALSE, log.p=FALSE)),
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+test_that("Confirm log.p = TRUE feature works in qbridge with lower.tail=F", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- runif(1, 0.01, 0.99)
+  expect_equal(object =       qbridge(log(x), scale=phi, lower.tail=FALSE, log.p=TRUE),
+               expected =     qbridge(    x , scale=phi, lower.tail=FALSE, log.p=FALSE),
+               tolerance = 1e-6,
+               scale = 1)
+})
