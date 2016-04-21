@@ -1,7 +1,7 @@
 ##' The Bridge Distribution
 ##'
 ##' Density, distribution function, quantile function and random generation for
-##' the bridge distribution with parameter\code{scale}. See Wang and Louis (2003).
+##' the bridge distribution with parameter \code{scale}. See Wang and Louis (2003).
 ##'
 ##' If \code{scale} is omitted, the default
 ##' value \code{1/2} is assumed.
