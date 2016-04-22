@@ -6,13 +6,13 @@
 ##' If \code{scale} is omitted, the default
 ##' value \code{1/2} is assumed.
 ##'
-##' The Bridge distribution with
-##' \code{scale} \eqn{= \sigma}{= s} has distribution function
+##' The Bridge distribution parameterized by
+##' \code{scale} has distribution function
 ##' \deqn{ }{F(q) = 1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))}
 ##' and density
 ##' \deqn{ }{f(x) = 1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi)).}
 ##'
-##' It is a long-tailed distribution with mean \eqn{\mu}{0} and variance
+##' The mean is \eqn{\mu}{0} and the variance is
 ##' \eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (scale^{-2} - 1) / 3 }.
 ##'
 ##' @aliases Bridge bridge dbridge pbridge qbridge rbridge bridgedist
@@ -40,8 +40,8 @@
 ##'
 ##' The numerical arguments other than \code{n} are recycled to the length of
 ##' the result.  Only the first elements of the logical arguments are used.
-##' @note \code{qbridge(p)}, \eqn{logit(p) = \log p/(1-p)}{logit(p) = log(p/(1-p))}, and
-##' \code{pbridge(x)}.
+##' @note Consult the vignette for some figures comparing the normal, logistic, and bridge
+##' distributions.
 ##'
 ##'
 ##' @seealso \link{Distributions} for other standard distributions.
