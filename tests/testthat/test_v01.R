@@ -111,3 +111,12 @@ test_that("Confirm log.p = TRUE feature works in qbridge with lower.tail=F", {
                tolerance = 1e-6,
                scale = 1)
 })
+
+test_that("test first logical", {
+  phi <- runif(1, 0.01, 0.99)
+  x <- runif(1, 0.01, 0.99)
+  expect_equal(object =       qbridge(log(x), scale=phi, lower.tail=FALSE, log.p=c(TRUE ,FALSE)),
+               expected =     qbridge(    x , scale=phi, lower.tail=FALSE, log.p=c(FALSE,TRUE)),
+               tolerance = 1e-6,
+               scale = 1)
+})
