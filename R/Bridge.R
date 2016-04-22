@@ -94,5 +94,10 @@ qbridge <- function(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
 ##' @rdname Bridge
 ##' @export
 rbridge <- function(n, scale = 1/2){
-  qbridge(stats::runif(n), scale)
+  if(length(n) == 1){
+    r <- qbridge(stats::runif(n), scale[1])
+  }else{
+    r <- qbridge(stats::runif(length(n)), rep(scale,length=length(n)))
+  }
+  r
 }
