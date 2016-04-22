@@ -14,5 +14,9 @@ There was 1 NOTE:
 
 * 1st submission
 
+## CRAN Review process
+
+* Added DOI in DESCRIPTION and man
+
 ## Downstream dependencies
 None.
