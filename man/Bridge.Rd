@@ -78,17 +78,17 @@ distributions.
 }
 \references{
 Wang, Z. and Louis, T.A. (2003) Matching conditional and marginal shapes in binary random intercept models using
-a bridge distribution function. \emph{Biometrika}, 90(4), 765-775.
+a bridge distribution function. \emph{Biometrika}, 90(4), 765-775. <DOI:10.1093/biomet/90.4.765>
 
 See also:
 
-Swihart, B.J., Caffo, B.S., and Crainiceanu, C.M. (2013). A Unifying Framework for Marginalized Random-Intercept Models of Correlated Binary Outcomes. \emph{International Statistical Review}, 82 (2), 275-295 1-22.
+Swihart, B.J., Caffo, B.S., and Crainiceanu, C.M. (2013). A Unifying Framework for Marginalized Random-Intercept Models of Correlated Binary Outcomes. \emph{International Statistical Review}, 82 (2), 275-295 1-22.  <DOI: 10.1111/insr.12035>
 
-Griswold, M.E., Swihart, B.J., Caffo, B.S and Zeger, S.L. (2013). Practical marginalized multilevel models. Stat, 2(1), 129-142.
+Griswold, M.E., Swihart, B.J., Caffo, B.S and Zeger, S.L. (2013). Practical marginalized multilevel models. Stat, 2(1), 129-142. <DOI: 10.1002/sta4.22>
 
-Heagerty, P.J. (1999). Marginally specified logistic-normal models for longitudinal binary data. Biometrics, 55(3), 688-698.
+Heagerty, P.J. (1999). Marginally specified logistic-normal models for longitudinal binary data. Biometrics, 55(3), 688-698.  <DOI: 10.1111/j.0006-341X.1999.00688.x>
 
-Heagerty, P.J. and Zeger, S.L. (2000). Marginalized multilevel models and likelihood inference (with comments and a rejoinder by the authors). Stat. Sci., 15(1), 1-26.
+Heagerty, P.J. and Zeger, S.L. (2000). Marginalized multilevel models and likelihood inference (with comments and a rejoinder by the authors). Stat. Sci., 15(1), 1-26.  <DOI: 10.1214/ss/1009212671>
 }
 \seealso{
 \link{Distributions} for other standard distributions.
