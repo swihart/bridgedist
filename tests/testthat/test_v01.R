@@ -120,3 +120,34 @@ test_that("test first logical", {
                tolerance = 1e-6,
                scale = 1)
 })
+
+
+test_that("rbridgeRecycle n=1", {
+  n <- 1
+  scale <- runif(sample(2:10),0.01,0.99)
+  expect_equal(object =   length(rbridge(n,scale))    ,
+               expected =   1  ,
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+
+test_that("rbridgeRecycle n>1 length(scale) > n", {
+  n <- 5
+  scale <- rep(c(0.01,0.99), length=6)
+  expect_equal(object =   length(rbridge(n,scale))    ,
+               expected =   5  ,
+               tolerance = 1e-6,
+               scale = 1)
+})
+
+
+test_that("rbridgeRecycle length(n)>1 length(scale) > length(n)", {
+  n <- rep(NA,5)
+  scale <- rep(c(0.01,0.99), length=6)
+  expect_equal(object =   length(rbridge(n,scale))    ,
+               expected =   5  ,
+               tolerance = 1e-6,
+               scale = 1)
+})
+
