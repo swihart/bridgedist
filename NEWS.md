@@ -1,6 +1,9 @@
 
 
-# CHANGES IN bridgedist VERSION 0.1
+# CHANGES IN bridgedist VERSION 0.1.0.9000
+
+
+# CHANGES IN bridgedist VERSION 0.1.0
 
 ## NEW FEATURES
 
