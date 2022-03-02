@@ -1,7 +1,7 @@
 ---
 title: "bridgedist R package"
 author: "Bruce Swihart"
-date: "April 18, 2016"
+date: "March 2022"
 output:
   md_document:
     variant: markdown_github
@@ -44,5 +44,5 @@ dbridge(0)
 pbridge(0)
 qbridge(0.5)
 mean(rbridge(1e5)) ## approximately 0
-var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+var(rbridge(1e5, phi = 1/sqrt(1+3/pi^2)))  # approximately 1
 ```

@@ -1,32 +1,32 @@
 ##' The Bridge Distribution
 ##'
 ##' Density, distribution function, quantile function and random generation for
-##' the bridge distribution with parameter \code{scale}. See Wang and Louis (2003).
+##' the bridge distribution with parameter \code{phi}. See Wang and Louis (2003).
 ##'
-##' If \code{scale} is omitted, the default
+##' If \code{phi} is omitted, the default
 ##' value \code{1/2} is assumed.
 ##'
 ##' The Bridge distribution parameterized by
-##' \code{scale} has distribution function
-##' \deqn{ }{F(q) = 1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))}
+##' \code{phi} has distribution function
+##' \deqn{ }{F(q) = 1 - 1/(pi*phi) * (pi/2 - atan( (exp(phi*q) + cos(phi*pi)) / sin(phi*pi) ))}
 ##' and density
-##' \deqn{ }{f(x) = 1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi)).}
+##' \deqn{ }{f(x) = 1/(2*pi) * sin(phi*pi) / (cosh(phi*x) + cos(phi*pi)).}
 ##'
 ##' The mean is \eqn{\mu}{0} and the variance is
-##' \eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (scale^{-2} - 1) / 3 }.
+##' \eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (phi^{-2} - 1) / 3 }.
 ##'
 ##' @aliases Bridge bridge dbridge pbridge qbridge rbridge bridgedist
 ## @usage
-## dbridge(x, scale = 1/2, log = FALSE) \cr
-## pbridge(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
-## qbridge(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
-## rbridge(n, scale = 1/2)
+## dbridge(x, phi = 1/2, log = FALSE) \cr
+## pbridge(q, phi = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
+## qbridge(p, phi = 1/2, lower.tail = TRUE, log.p = FALSE) \cr
+## rbridge(n, phi = 1/2)
 ##'
 ##' @param x,q vector of quantiles.
 ##' @param p vector of probabilities.
 ##' @param n number of observations. If \code{length(n) > 1}, the length is
 ##' taken to be the number required.
-##' @param scale scale parameter. The scale must be between 0 and 1. A scale of 1/sqrt(1+3/pi^2) gives unit variance.
+##' @param phi phi parameter. The phi must be between 0 and 1. A phi of 1/sqrt(1+3/pi^2) gives unit variance.
 ##' @param log,log.p logical; if TRUE, probabilities p are given as log(p).
 ##' @param lower.tail logical; if TRUE (default), probabilities are \eqn{P[X
 ##' \le x]}, otherwise, \eqn{P[X > x]}.
@@ -63,50 +63,50 @@
 ##' \code{rbridge} uses inversion.
 ##' @keywords distribution
 ##' @examples
-##'   ## Confirm unit variance for scale = 1/sqrt(1+3/pi^2)
-##'   var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+##'   ## Confirm unit variance for phi = 1/sqrt(1+3/pi^2)
+##'   var(rbridge(1e5, phi = 1/sqrt(1+3/pi^2)))  # approximately 1
 ##'
 ##' @name Bridge
 ##'
 ##' @rdname Bridge
 ##' @export
-dbridge <- function(x, scale = 1/2, log = FALSE){
-  maxlength <- max(length(x), length(scale))
+dbridge <- function(x, phi = 1/2, log = FALSE){
+  maxlength <- max(length(x), length(phi))
   x <- rep(x    , length=maxlength)
-  scale <- rep(scale, length=maxlength)
-  d=1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi))
+  phi <- rep(phi, length=maxlength)
+  d=1/(2*pi) * sin(phi*pi) / (cosh(phi*x) + cos(phi*pi))
   if(log[1]) d = log(d)
   d
 }
 ##' @rdname Bridge
 ##' @export
-pbridge <- function(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
-  maxlength <- max(length(q), length(scale))
+pbridge <- function(q, phi = 1/2, lower.tail = TRUE, log.p = FALSE){
+  maxlength <- max(length(q), length(phi))
   q <- rep(q    , length=maxlength)
-  scale <- rep(scale, length=maxlength)
-  p=1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))
+  phi <- rep(phi, length=maxlength)
+  p=1 - 1/(pi*phi) * (pi/2 - atan( (exp(phi*q) + cos(phi*pi)) / sin(phi*pi) ))
   if(!lower.tail[1]) p = 1-p
   if(log.p[1]) p = log(p)
   p
 }
 ##' @rdname Bridge
 ##' @export
-qbridge <- function(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE){
-  maxlength <- max(length(p), length(scale))
+qbridge <- function(p, phi = 1/2, lower.tail = TRUE, log.p = FALSE){
+  maxlength <- max(length(p), length(phi))
   p <- rep(p    , length=maxlength)
-  scale <- rep(scale, length=maxlength)
+  phi <- rep(phi, length=maxlength)
   if(log.p[1]) p = exp(p)
   if(!lower.tail[1]) p = 1-p
-  q=1/scale * log( sin(scale*pi*p) / sin(scale*pi*(1-p)) )
+  q=1/phi * log( sin(phi*pi*p) / sin(phi*pi*(1-p)) )
   q
 }
 ##' @rdname Bridge
 ##' @export
-rbridge <- function(n, scale = 1/2){
+rbridge <- function(n, phi = 1/2){
   if(length(n) == 1){
-    r <- qbridge(stats::runif(n), scale[1])
+    r <- qbridge(stats::runif(n), phi[1])
   }else{
-    r <- qbridge(stats::runif(length(n)), rep(scale,length=length(n)))
+    r <- qbridge(stats::runif(length(n)), rep(phi,length=length(n)))
   }
   r
 }

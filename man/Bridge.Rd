@@ -2,12 +2,12 @@
 % Please edit documentation in R/Bridge.R
 \name{Bridge}
 \alias{Bridge}
-\alias{bridge}
-\alias{bridgedist}
 \alias{dbridge}
+\alias{bridge}
 \alias{pbridge}
 \alias{qbridge}
 \alias{rbridge}
+\alias{bridgedist}
 \title{The Bridge Distribution}
 \source{
 \code{[dpq]bridge} are calculated directly from the definitions.
@@ -15,18 +15,18 @@
 \code{rbridge} uses inversion.
 }
 \usage{
-dbridge(x, scale = 1/2, log = FALSE)
+dbridge(x, phi = 1/2, log = FALSE)
 
-pbridge(q, scale = 1/2, lower.tail = TRUE, log.p = FALSE)
+pbridge(q, phi = 1/2, lower.tail = TRUE, log.p = FALSE)
 
-qbridge(p, scale = 1/2, lower.tail = TRUE, log.p = FALSE)
+qbridge(p, phi = 1/2, lower.tail = TRUE, log.p = FALSE)
 
-rbridge(n, scale = 1/2)
+rbridge(n, phi = 1/2)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{scale}{scale parameter. The scale must be between 0 and 1. A scale of 1/sqrt(1+3/pi^2) gives unit variance.}
+\item{phi}{phi parameter. The phi must be between 0 and 1. A phi of 1/sqrt(1+3/pi^2) gives unit variance.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -52,28 +52,28 @@ the result.  Only the first elements of the logical arguments are used.
 }
 \description{
 Density, distribution function, quantile function and random generation for
-the bridge distribution with parameter \code{scale}. See Wang and Louis (2003).
+the bridge distribution with parameter \code{phi}. See Wang and Louis (2003).
 }
 \details{
-If \code{scale} is omitted, the default
+If \code{phi} is omitted, the default
 value \code{1/2} is assumed.
 
 The Bridge distribution parameterized by
-\code{scale} has distribution function
-\deqn{ }{F(q) = 1 - 1/(pi*scale) * (pi/2 - atan( (exp(scale*q) + cos(scale*pi)) / sin(scale*pi) ))}
+\code{phi} has distribution function
+\deqn{ }{F(q) = 1 - 1/(pi*phi) * (pi/2 - atan( (exp(phi*q) + cos(phi*pi)) / sin(phi*pi) ))}
 and density
-\deqn{ }{f(x) = 1/(2*pi) * sin(scale*pi) / (cosh(scale*x) + cos(scale*pi)).}
+\deqn{ }{f(x) = 1/(2*pi) * sin(phi*pi) / (cosh(phi*x) + cos(phi*pi)).}
 
 The mean is \eqn{\mu}{0} and the variance is
-\eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (scale^{-2} - 1) / 3 }.
+\eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (phi^{-2} - 1) / 3 }.
 }
 \note{
 Consult the vignette for some figures comparing the normal, logistic, and bridge
 distributions.
 }
 \examples{
-  ## Confirm unit variance for scale = 1/sqrt(1+3/pi^2)
-  var(rbridge(1e5, scale = 1/sqrt(1+3/pi^2)))  # approximately 1
+  ## Confirm unit variance for phi = 1/sqrt(1+3/pi^2)
+  var(rbridge(1e5, phi = 1/sqrt(1+3/pi^2)))  # approximately 1
 
 }
 \references{
@@ -94,4 +94,3 @@ Heagerty, P.J. and Zeger, S.L. (2000). Marginalized multilevel models and likeli
 \link{Distributions} for other standard distributions.
 }
 \keyword{distribution}
-
