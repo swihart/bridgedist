@@ -1,19 +1,22 @@
-# CHANGES IN bridgedist VERSION 0.1.1
+------------------------------------------------------------------------------
+version 0.1.2
+------------------------------------------------------------------------------
 
-## NEW FEATURES
+  * fixed typo in vignette
 
-- changed license to GPL (>=2)
-- changed `scale` to `phi`, as indicated in startup message
-- changed http to https where appropriate
+------------------------------------------------------------------------------
+version 0.1.1
+------------------------------------------------------------------------------
 
-# CHANGES IN bridgedist VERSION 0.1.0
+  * changed license to GPL (>=2)
+  * changed `scale` to `phi`, as indicated in startup message
+  * changed http to https where appropriate
 
-## NEW FEATURES
+------------------------------------------------------------------------------
+version 0.1.0
+------------------------------------------------------------------------------
 
-- first version of bridgedist: it covers the most popular case (Logit-Link) in Wang and Louis 2003, offering the familiar p/d/q/r functions for the bridge distribution
+  * first version of bridgedist: it covers the most popular case (Logit-Link) in Wang and Louis 2003, offering the familiar p/d/q/r functions for the bridge distribution
 
-# CHANGES IN bridgedist VERSION 0.1.0.9000
 
-## MISC
 
-- Github for devel; CRAN for releases.

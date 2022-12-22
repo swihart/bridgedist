@@ -44,7 +44,7 @@ ggplot(melt.df, aes(x, value, color=Distribution)) +
   ylab("Probability density function") 
 ```
 
-The implication is that a random variable from a Bridge distribution plus random variable from a standard logistic distribution is a logistic random variable with a phi greater than one.  
+The implication is that a random variable from a Bridge distribution plus random variable from a standard logistic distribution is a logistic random variable with a scale greater than one (1/phi).  
 
 
 ```{r, fig.width=6, fig.cap = "Fig. 2. 10000 random variates in each panel.  From left to right: the bridge distribution, the logistic with scale=1, the sum of the previous two, and the logistic with scale=1/phi.  Note how similar the third and fourth panel, the application supporting the theory.", warning=FALSE, message=FALSE}
