@@ -8,9 +8,9 @@
 ##'
 ##' The Bridge distribution parameterized by
 ##' \code{phi} has distribution function
-##' \deqn{ }{F(q) = 1 - 1/(pi*phi) * (pi/2 - atan( (exp(phi*q) + cos(phi*pi)) / sin(phi*pi) ))}
+##' \deqn{F(q) = 1 - 1/(pi*phi) * (pi/2 - atan( (exp(phi*q) + cos(phi*pi)) / sin(phi*pi) ))}
 ##' and density
-##' \deqn{ }{f(x) = 1/(2*pi) * sin(phi*pi) / (cosh(phi*x) + cos(phi*pi)).}
+##' \deqn{f(x) = 1/(2*pi) * sin(phi*pi) / (cosh(phi*x) + cos(phi*pi)).}
 ##'
 ##' The mean is \eqn{\mu}{0} and the variance is
 ##' \eqn{\pi^2 (\phi^{-2} - 1) / 3 }{pi^2 * (phi^{-2} - 1) / 3 }.
